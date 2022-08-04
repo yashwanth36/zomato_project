@@ -1,0 +1,30 @@
+<div class="container">
+    <img class= "mainimg" src="https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png"/>
+    <div class="centered">
+      <h1>zomato</h1>
+    </div>
+    <div class="bottom">
+      <h2> Discover the best food & drinks in Hyderabad</h2>
+    </div>
+    <div class="search">
+        <mdb-form-control>
+          <input mdbInput type="search" id="restaurants" class="form-control" />
+          <label mdbLabel class="form-label" for="restaurants">Search for restaurants</label>
+        </mdb-form-control>
+        <button type="button" class="btn btn-primary">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+   
+  </div>
+<div *ngFor="let prod of allrestaurant, let i=index" class="restaurant-box" >
+      <mat-card class="example-card" >
+          <mat-card-header class="header">
+            <img mat-card-avatar  ngxGravatar  src="{{prod.photo}}">
+            <mat-card-title class="title">{{prod.name}}</mat-card-title>
+            <mat-card-subtitle class="description">{{prod.description}}</mat-card-subtitle>
+            <ngb-rating [(rate)]="foodrating">{{prod.foodrating}}</ngb-rating>
+            <ngb-rating [(rate)]="deliveryrating">{{prod.deliveryrating}}</ngb-rating>
+          </mat-card-header>
+      </mat-card>
+</div>

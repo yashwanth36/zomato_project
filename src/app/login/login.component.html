@@ -1,0 +1,25 @@
+<form [formGroup]="loginBoxFormGroup">
+    <mat-card class="example-card" [ngStyle]="{'height':'340px', 'background-size': '100% 400px'}" >
+      <div class="box">
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="Enter your email" formControlName="email">
+        <mat-error *ngIf="loginBoxFormGroup.get('email')?.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+        <div class="example-container">
+        <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginBoxFormGroup.get('password')?.invalid">{{getPasswordErrorMessage()}}</mat-error>
+         </mat-form-field>
+        </div>
+        <button mat-raised-button (click)="login()" color="primary" class="signup"   [disabled]="!loginBoxFormGroup.valid">Login</button>
+       </div>
+    </mat-card>
+</form>
